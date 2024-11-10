@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#030712]">
+    <section class="bg-[#030712]">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <!-- Main Registration Container with increased width -->
+            <div class="flex w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-4xl xl:p-10 dark:bg-gray-800 dark:border-gray-700">
+                
+                <!-- Left Side (Form) -->
+                <div class="w-full p-8 space-y-6 sm:p-10">
+                    <!-- Page Header -->
+                    <div class="text-center mb-4">
+                        <p class="text-2xl font-medium text-white">Register As Freelancer</p>
+                    </div>
+                    
+                    <!-- Registration Form -->
+                    <form class="space-y-4" action="#">
+                        <!-- First Name & Last Name in one row -->
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="first-name" class="block mb-2 text-sm font-medium text-white">First Name</label>
+                                <input type="text" name="first-name" id="first-name" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="John" required>
+                            </div>
+                            <div class="w-1/2">
+                                <label for="last-name" class="block mb-2 text-sm font-medium text-white">Last Name</label>
+                                <input type="text" name="last-name" id="last-name" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Doe" required>
+                            </div>
+                        </div>
+    
+                        <!-- Email & Mobile Number in one row -->
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
+                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required>
+                                <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">We’ll never share your details. Read our <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy Policy</a>.</p>
+                            </div>
+                            <div class="w-1/2">
+                                <label for="mobile" class="block mb-2 text-sm font-medium text-white">Mobile Number</label>
+                                <input type="tel" name="mobile" id="mobile" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="+1234567890" required>
+                            </div>
+                        </div>
+    
+                        <!-- Password & Confirm Password in one row -->
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
+                                <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="••••••••" required>
+                            </div>
+                            <div class="w-1/2">
+                                <label for="confirm-password" class="block mb-2 text-sm font-medium text-white">Confirm Password</label>
+                                <input type="password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="••••••••" required>
+                            </div>
+                        </div>
+    
+                        <hr class="my-4 border-gray-600 opacity-50">
+                        <div class="flex space-x-4">
+                            <button type="button" class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-xs px-4 py-1.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
+                                <svg class="w-3 h-3 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                                    <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd"/>
+                                </svg>
+                                Sign in with Google
+                            </button>
+                            
+                            <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-xs px-4 py-1.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                <svg class="w-4 h-4 me-2 -ms-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="apple" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                    <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path>
+                                </svg>
+                                Sign in with Apple
+                            </button>
+                        </div>
+
+    
+                    <!-- Continue Button -->
+                    <div class="mt-4">
+                        <button type="button" 
+                                class="w-1/2 py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                                onmouseover="this.style.backgroundColor='#4B90F9'; this.style.color='white';" 
+                                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B90F9';"
+                                onclick="window.location.href='FreelancerRegister.html';">
+                            Continue →
+                        </button>
+                    </div>
+
+                                        <!-- Login Link -->
+                        <p class="mt-4 text-sm text-gray-400">
+                            Already have an account? <a href="login.html" class="text-green-400 font-medium hover:underline">Log In</a>
+                        </p>
+
+                    </form>
+                </div>
+    
+                <!-- Right Side (Image) -->
+                <div class="hidden sm:block sm:w-1/2 lg:w-2/3 xl:w-3/4 p-4">
+                    <img src="https://images.unsplash.com/photo-1595683363301-1e94594a550d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Your Image" class="object-cover w-full h-full rounded-lg">
+                </div>
+            </div>
+            <script src="https://cdn.tailwindcss.com"></script>
+        </div>
+    </section>
+    <style>
+    </style>
+</body>
+</html>
