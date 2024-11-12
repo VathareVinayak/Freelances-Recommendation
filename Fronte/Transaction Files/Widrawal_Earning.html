@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal and Earnings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="flex min-h-screen text-white bg-[#030712]">
+
+    <!-- Sidebar -->
+    <!-- Sidebar content here if needed -->
+
+    <!-- Main Content Area -->
+    <section class="flex-1 p-6 lg:p-10">
+        <h1 class="text-3xl font-bold text-[#4c9bfb] mb-4">Withdrawal & Earnings</h1>
+        
+
+        <!-- Loading Animation -->
+        <div id="loading-animation" class="hidden mx-auto my-4 w-10 h-10 border-4 border-t-4 border-gray-400 rounded-full animate-spin"></div>
+
+        <!-- Get Paid Section -->
+        <div id="get-paid" class="p-4 bg-[#1c1f2e] rounded-lg shadow-lg mb-6">
+            <h1 class="text-2xl font-bold text-[#4c9bfb] mb-4">Get Paid</h1>
+            <div class="mb-6 p-4 bg-[#2a2f45] rounded-lg shadow">
+                <p class="text-lg text-[#b0b3b8]">Available Balance</p>
+                <h2 class="text-4xl font-bold">$0.00</h2>
+            </div>
+            <div class="mb-6 p-4 bg-[#2a2f45] rounded-lg shadow">
+                <p class="font-bold text-[#b0b3b8]">To withdraw earnings, first you need to set up a withdrawal method.</p>
+                <p class="text-sm text-gray-400">It may take up to 3 days to activate your withdrawal method.</p>
+                <button class="mt-4 px-4 py-2 bg-blue-700 rounded hover:bg-[#4c9bfb] transition-colors">ADD METHOD</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-[#2a2f45] rounded-lg shadow">
+                    <h3 class="font-bold text-[#4c9bfb]">Withdrawal schedule</h3>
+                    <p class="text-[#b0b3b8]">You haven’t set up a schedule yet. You’ll be able to set it up once you’ve added a withdrawal method.</p>
+                </div>
+                <div class="p-4 bg-[#2a2f45] rounded-lg shadow">
+                    <h3 class="font-bold text-[#4c9bfb]">Last withdrawal</h3>
+                    <p class="text-[#b0b3b8]">You haven’t made any withdrawals yet.</p>
+                </div>
+            </div>
+            <div class="mt-4 p-4 bg-[#2a2f45] rounded-lg shadow">
+                <h3 class="font-bold text-[#4c9bfb]">Withdrawal methods</h3>
+                <p class="text-[#b0b3b8]">You haven’t set up any withdrawal methods yet.</p>
+                <button class="mt-2 px-4 py-2 bg-blue-700 rounded hover:bg-[#4c9bfb] transition-colors">Add a Method</button>
+            </div>
+        </div>
+
+        <!-- Billing & Payments Section -->
+        <div id="billing-payments" class="hidden p-4 bg-[#1c1f2e] rounded-lg shadow-lg mb-6">
+            <h2 class="text-2xl font-semibold text-[#4c9bfb] mb-4">Billing Methods</h2>
+            <p class="text-sm text-[#b0b3b8]">You haven’t set up any billing methods yet. Your billing method will be charged only when your available balance is not sufficient to pay for your monthly membership and/or Connects.</p>
+            <button class="mt-4 px-4 py-2 bg-blue-700 rounded hover:bg-[#4c9bfb] transition-colors">+ Add Billing Method</button>
+        </div>
+
+        <!-- Profile Settings Panel -->
+        <div id="profile-settings" class="hidden p-4 bg-[#1c1f2e] rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-[#4c9bfb] mb-4">Profile Settings</h2>
+            <p class="text-[#b0b3b8] mb-2">Manage your profile settings, change your display name, and update contact information.</p>
+            <button class="px-4 py-2 bg-blue-700 rounded hover:bg-[#4c9bfb] transition-colors">Save Changes</button>
+        </div>
+    </section>
+
+    <!-- Script for Loading Animation and Section Toggling -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingAnimation = document.getElementById("loading-animation");
+            const getPaidSection = document.getElementById("get-paid");
+            const billingPaymentsSection = document.getElementById("billing-payments");
+            const profileSettingsSection = document.getElementById("profile-settings");
+
+            profileSettingsSection.classList.add("hidden");
+            billingPaymentsSection.classList.add("hidden");
+
+            document.getElementById("get-paid-btn").addEventListener("click", function () {
+                loadingAnimation.classList.remove("hidden");
+                getPaidSection.classList.remove("hidden");
+                billingPaymentsSection.classList.add("hidden");
+                profileSettingsSection.classList.add("hidden");
+
+                setTimeout(() => loadingAnimation.classList.add("hidden"), 1000);
+            });
+
+            document.getElementById("billing-btn").addEventListener("click", function () {
+                loadingAnimation.classList.remove("hidden");
+                billingPaymentsSection.classList.remove("hidden");
+                getPaidSection.classList.add("hidden");
+                profileSettingsSection.classList.add("hidden");
+
+                setTimeout(() => loadingAnimation.classList.add("hidden"), 1000);
+            });
+
+            document.getElementById("profile-settings-btn").addEventListener("click", function () {
+                loadingAnimation.classList.remove("hidden");
+                profileSettingsSection.classList.remove("hidden");
+                getPaidSection.classList.add("hidden");
+                billingPaymentsSection.classList.add("hidden");
+
+                setTimeout(() => loadingAnimation.classList.add("hidden"), 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

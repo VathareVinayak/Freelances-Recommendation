@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body class="bg-[#030712] text-white font-sans antialiased">
+
+    <!-- Transaction History Section -->
+    <section class="min-h-screen flex items-center justify-center">
+        <div class="w-full max-w-7xl px-12 py-12">
+
+            <!-- Title and Balance -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold">Transaction History</h1>
+                <br>
+                <p class="text-lg font-medium">Total Balance: <span class="text-green-500">$0.00</span></p>
+            </div>
+
+            <!-- Filter Row -->
+            <div class="flex flex-wrap items-center justify-between mb-6 space-y-4 md:space-y-0">
+                
+                <!-- Left Side - Filters and Buttons -->
+                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 w-full">
+
+                    <!-- Statement Period Dropdown -->
+                    <div class="relative inline-block w-64">
+                        <label class="block font-semibold">Statement Period</label>
+                        <button onclick="toggleDropdown('dropdownMenu1')" class="w-full flex items-center justify-between bg-[#1B263B] text-white border border-gray-500 rounded-lg p-2 focus:outline-none">
+                            <span class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 12h14M5 16h14M5 20h14"></path>
+                                </svg>
+                                <span>Statement period</span>
+                            </span>
+                            <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Content -->
+                        <div id="dropdownMenu1" class="absolute w-full mt-1 bg-[#1B263B] text-white border border-gray-500 rounded-lg shadow-lg max-h-60 overflow-y-auto z-10 hidden transition ease-out duration-300 transform opacity-0 scale-95">
+                            <ul class="py-1">
+                                <!-- Options Here -->
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">Current activity <span class="text-gray-500 text-sm">Oct 12, 2024 - Nov 11, 2024</span></li>
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">This week <span class="text-gray-500 text-sm">Nov 11, 2024 - Nov 11, 2024</span></li>
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">Last week <span class="text-gray-500 text-sm">Nov 4, 2024 - Nov 10, 2024</span></li>
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">This month - Nov 24 <span class="text-gray-500 text-sm">Nov 1, 2024 - Nov 11, 2024</span></li>
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">Statement - Oct 24 <span class="text-gray-500 text-sm">Oct 1, 2024 - Oct 31, 2024</span></li>
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">Statement - Sep 24 <span class="text-gray-500 text-sm">Sep 1, 2024 - Sep 30, 2024</span></li>
+                                <li class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">Statement - Aug 24 <span class="text-gray-500 text-sm">Aug 1, 2024 - Aug 31, 2024</span></li>
+                                <li onclick="openDatePicker()" class="px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer flex items-center space-x-2">
+                                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 12h14M5 16h14M5 20h14"></path>
+                                    </svg>
+                                    <span>Custom date range</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Category Dropdown -->
+                    <div class="relative w-64">
+                        <label class="block font-semibold">Transaction Category</label>
+                        <button onclick="toggleDropdown('dropdownMenu2')" class="w-full flex items-center justify-between bg-[#1B263B] text-white border border-gray-500 rounded-lg p-2 mt-2 focus:outline-none">
+                            <span>All transactions</span>
+                            <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Options -->
+                        <div id="dropdownMenu2" class="absolute w-full mt-2 bg-[#1B263B] text-white border border-gray-500 rounded-lg shadow-lg max-h-60 overflow-y-auto z-10 hidden transition ease-out duration-300 transform opacity-0 scale-95">
+                            <div class="flex items-center bg-[#0D1B2A] border border-gray-500 rounded-md p-2 mb-2">
+                                <svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.5 10.5a6 6 0 1112 0 6 6 0 01-12 0z"></path>
+                                </svg>
+                                <input type="text" placeholder="Search" class="bg-transparent text-white focus:outline-none w-full placeholder-gray-400">
+                            </div>
+                            <ul class="text-gray-300 space-y-1">
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0" checked>
+                                    <span class="ml-3">All transactions</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">All debits</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">All credits</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">Hourly</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">Fixed price</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">Bonus</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">Adjustments</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">Withdrawals</span>
+                                </li>
+                                <li class="flex items-center px-4 py-2 hover:bg-[#0D1B2A] cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 bg-[#1B263B] border-gray-400 rounded focus:ring-0">
+                                    <span class="ml-3">Expense</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Client Section with Search Box -->
+                        <div>
+                            <label class="block font-semibold mb-2">Client</label>
+
+                            <!-- Search Box -->
+
+
+                            <!-- Dropdown for Client Selection -->
+                            <select class="bg-[#1f2937] border border-gray-600 rounded px-3 py-2 w-full text-white">
+                                <option>All clients</option>
+                                
+                            </select>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    
+                    <!-- Right Side - Buttons -->
+                    <div class="flex space-x-4 mt-4 md:mt-0 ml-auto justify-end">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Download CSV
+                            </span>
+                        </button>
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Transaction Invoice
+                            </span>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- No Transactions Message Box -->
+            <div class="border border-blue-500 rounded-lg p-12 text-center opacity-90 bg-[#1B263B]">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-green-600 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M9 12h6M4 17h16" />
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-xl">No transactions available for this period</p>
+                <p class="text-sm text-gray-500 mt-2">Please adjust your filters or select a different date range to view transactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Date Picker Input and Scripts -->
+    <input type="text" id="datePicker" class="hidden">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        function toggleDropdown(id) {
+            const dropdownMenu = document.getElementById(id);
+            dropdownMenu.classList.toggle("hidden");
+            dropdownMenu.classList.toggle("opacity-0");
+            dropdownMenu.classList.toggle("scale-95");
+        }
+
+        function openDatePicker() {
+            const datePicker = document.getElementById("datePicker");
+            flatpickr(datePicker, {
+                mode: "range",
+                dateFormat: "M d, Y",
+                onClose: function() {
+                    toggleDropdown('dropdownMenu1');
+                }
+            });
+            datePicker.click();
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.relative')) {
+                document.querySelectorAll(".absolute").forEach(menu => {
+                    menu.classList.add("hidden", "opacity-0", "scale-95");
+                });
+            }
+        };
+    </script>
+</body>
+</html>

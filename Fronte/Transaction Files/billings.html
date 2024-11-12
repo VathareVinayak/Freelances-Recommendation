@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billings & Earnings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#070a18] text-[#a8abbd] font-sans flex flex-col items-center p-0 m-0">
+
+<div class="w-[90%] max-w-[900px] p-5">
+  <h1 class="text-2xl text-center">Billings & Earnings</h1>
+  <p class="text-center text-[#7b8493] mb-5">View your earnings and any applicable fees and taxes by the client for past 3 years. For Earnings, go to transaction history.</p>
+
+  <div class="flex justify-center mb-5">
+    <select id="dateRange" class="bg-[#24242b]/70 text-[#a8abbd] border border-[#54596c] py-2 px-3 rounded-lg mx-1" onchange="toggleCustomDate(this.value)">
+      <option value="7">Past 7 Days</option>
+      <option value="15">Past 15 Days</option>
+      <option value="30">Past 30 Days</option>
+      <option value="90">Past 3 Months</option>
+      <option value="180">Past 6 Months</option>
+      <option value="custom">Custom Date</option>
+    </select>
+    <input type="date" id="startDate" class="bg-[#24242b]/70 text-[#a8abbd] border border-[#54596c] py-2 px-3 rounded-lg mx-1" style="display: none;">
+    <input type="date" id="endDate" class="bg-[#24242b]/70 text-[#a8abbd] border border-[#54596c] py-2 px-3 rounded-lg mx-1" style="display: none;">
+  </div>
+
+  <div class="flex justify-between mb-5">
+    <button class="tab active py-2 px-5 cursor-pointer bg-[#070a18]/30 text-[#a8abbd] rounded-lg border border-[#54596c] transition duration-300 hover:bg-[#30355a]/50 hover:text-white active" onclick="showContent('billing')">Billing & Earnings</button>
+    <button class="tab py-2 px-5 cursor-pointer bg-[#070a18]/30 text-[#a8abbd] rounded-lg border border-[#54596c] transition duration-300 hover:bg-[#30355a]/50 hover:text-white" onclick="showContent('lifetime')">Lifetime Billed</button>
+  </div>
+
+  <!-- Billing and Earnings Content -->
+  <div id="billing-content" class="content-box bg-[#2c3141]/70 p-5 rounded-lg text-center w-full">
+    <div class="file-icon text-4xl text-[#6669ac] mb-4">📄</div>
+    <p class="text-[#7b8493] text-base">There are no earnings to display for the selected date range.</p>
+    <p class="text-[#7b8493] text-base">If you believe this is a mistake, please contact customer support.</p>
+    <button class="btn mt-4 py-2 px-5 text-white bg-[#3c4c5c]/50 rounded-lg transition duration-300 hover:bg-[#6669ac]/50" onclick="alert('Contacting Support...')">Contact Customer Support</button>
+    <button class="btn mt-4 py-2 px-5 text-white bg-[#3c4c5c]/50 rounded-lg transition duration-300 hover:bg-[#6669ac]/50" onclick="downloadCSV()">Download CSV</button>
+  </div>
+
+  <!-- Lifetime Billed Content -->
+  <div id="lifetime-content" class="content-box bg-[#2c3141]/70 p-5 rounded-lg text-center w-full hidden">
+    <div class="file-icon text-4xl text-[#6669ac] mb-4">📄</div>
+    <p class="text-[#7b8493] text-base">There are no billings to display.</p>
+    <p class="text-[#7b8493] text-base">If you believe this is a mistake, please contact customer support.</p>
+    <button class="btn mt-4 py-2 px-5 text-white bg-[#3c4c5c]/50 rounded-lg transition duration-300 hover:bg-[#6669ac]/50" onclick="alert('Contacting Support...')">Contact Customer Support</button>
+  </div>
+  
+  <!-- Loading animation -->
+  <div id="loading" class="loading border-[6px] border-[#54596c] border-t-[#6669ac] rounded-full w-[30px] h-[30px] mx-auto my-2 hidden animate-spin"></div>
+</div>
+
+<script>
+  function showContent(type) {
+    // Show loading animation
+    document.getElementById('loading').style.display = 'block';
+
+    // Simulate loading delay
+    setTimeout(() => {
+      document.getElementById('loading').style.display = 'none';
+
+      // Show or hide the content based on the selected tab
+      if (type === 'billing') {
+        document.getElementById('billing-content').classList.remove('hidden');
+        document.getElementById('lifetime-content').classList.add('hidden');
+        document.getElementById('dateRange').style.display = 'block';
+      } else {
+        document.getElementById('billing-content').classList.add('hidden');
+        document.getElementById('lifetime-content').classList.remove('hidden');
+        document.getElementById('dateRange').style.display = 'none';
+      }
+
+      // Update active class on tabs
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelector(`[onclick="showContent('${type}')"]`).classList.add('active');
+    }, 500);
+  }
+
+  function downloadCSV() {
+    alert("CSV file download initiated.");
+  }
+
+  function toggleCustomDate(value) {
+    const isCustom = value === 'custom';
+    document.getElementById('startDate').style.display = isCustom ? 'inline-block' : 'none';
+    document.getElementById('endDate').style.display = isCustom ? 'inline-block' : 'none';
+  }
+</script>
+
+
+</body>
+</html>
+
+
