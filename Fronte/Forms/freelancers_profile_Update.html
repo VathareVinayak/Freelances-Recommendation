@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Your Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="bg-[#030712]">
+    <form>
+        <section class="p-6">
+            <div class="text-center mb-4">
+                <p class="text-xl text-white font-medium">Update Your Profile</p>
+            </div><br>
+            <hr class="my-4 border-gray-600 opacity-55">
+            <label for="experience" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Personal Information</label>
+            <br><br>
+            
+            <!-- Profile Image Upload Section -->
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="shrink-0">
+                    <img id="preview_img" class="h-16 w-16 object-cover rounded-full" 
+                        src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.webp" 
+                        alt="Current profile photo" />
+                </div>
+                <label class="block">
+                    <span class="sr-only">Choose Profile Photo</span>
+                    <input type="file" onchange="loadFile(event)" 
+                        class="block w-full text-sm text-gray-500
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-full file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-violet-50 file:text-violet-700
+                                hover:file:bg-violet-100"/>
+                </label>
+            </div>
+            <div class="sm:col-span-6">
+                <label for="cover-photo" class="block text-sm font-medium text-gray-700">Cover Photo</label>
+                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md bg-transparent">
+                    <div class="space-y-1 text-center">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <div class="flex text-sm text-gray-600">
+                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                        </div>
+                        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Information Section -->
+            <div class="flex flex-col lg:flex-row gap-2 w-full">
+                <!-- First Name Field -->
+                <div class="w-full mb-4 mt-6">
+                    <label for="firstName" class="block text-gray-300 mb-2 text-center lg:text-left">First Name</label>
+                    <input type="text" 
+                        class="p-4 w-full border-2 rounded-lg text-gray-200 border-gray-600 bg-black 
+                            focus:ring-blue-500 focus:border-blue-500 
+                            hover:bg-gray-800 transition-all duration-300" 
+                        placeholder="First Name">
+                </div>
+        
+                <!-- Last Name Field -->
+                <div class="w-full mb-4 mt-6">
+                    <label for="lastName" class="block text-gray-300 mb-2 text-center lg:text-left">Last Name</label>
+                    <input type="text" 
+                        class="p-4 w-full border-2 rounded-lg text-gray-200 border-gray-600 bg-black 
+                            focus:ring-blue-500 focus:border-blue-500 
+                            hover:bg-gray-800 transition-all duration-300" 
+                        placeholder="Last Name">
+                </div>
+            </div>
+        
+            <!-- Domain Name and Location Section -->
+            <div class="flex flex-col lg:flex-row gap-2 w-full">
+                <!-- Domain Name Field -->
+                <div class="w-full mb-4 mt-6">
+                    <label for="domainName" class="block text-gray-300 mb-2 text-center lg:text-left">Domain Name</label>
+                    <input type="text" 
+                        class="p-4 w-full border-2 rounded-lg text-gray-200 border-gray-600 bg-black 
+                            focus:ring-blue-500 focus:border-blue-500 
+                            hover:bg-gray-800 transition-all duration-300" 
+                        placeholder="Ex. Data Scientist">
+                </div>
+        
+                <!-- Location Field -->
+                <div class="w-full mb-4 mt-6">
+                    <label for="location" class="block text-gray-300 mb-2 text-center lg:text-left">Location</label>
+                    <input type="text" 
+                        class="p-4 w-full border-2 rounded-lg text-gray-200 border-gray-600 bg-black 
+                            focus:ring-blue-500 focus:border-blue-500 
+                            hover:bg-gray-800 transition-all duration-300" 
+                        placeholder="Ex. India">
+                </div>
+            </div>
+
+            
+        </section>
+        
+        
+        <hr class="my-4 border-gray-600 opacity-35">
+            <section>
+                <label for="experience" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Contact Information</label>
+            
+                <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+                    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+                        <div>
+                            <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                                <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M18.427 14.768 17.2 13.542a1.733 1.733 0 0 0-2.45 0l-.613.613a1.732 1.732 0 0 1-2.45 0l-1.838-1.84a1.735 1.735 0 0 1 0-2.452l.612-.613a1.735 1.735 0 0 0 0-2.452L9.237 5.572a1.6 1.6 0 0 0-2.45 0c-3.223 3.2-1.702 6.896 1.519 10.117 3.22 3.221 6.914 4.745 10.12 1.535a1.601 1.601 0 0 0 0-2.456Z"/>
+                                </svg>          
+                            </div>
+                            <h3 class="mb-2 text-xl font-bold dark:text-white">Contact Number</h3>
+                            <div class="w-full  mb-4 lg:mt-6">
+                                <input type="text"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300"
+                                    placeholder="+9876543211">
+                            </div>
+                        </div>
+            
+                        <div>
+                            <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.8 4H3.2C2.54 4 2 4.54 2 5.2v13.6c0 .66.54 1.2 1.2 1.2h17.6c.66 0 1.2-.54 1.2-1.2V5.2c0-.66-.54-1.2-1.2-1.2Zm-9.8 8.3L3.75 6.84l1.3-1.2 6.15 5.5L17.45 5.64l1.3 1.2-7.35 6.46-.1.09-.1-.09Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-bold dark:text-white">Email</h3>
+                            <div class="w-full  mb-4 lg:mt-6">
+                                <div class="w-full  mb-4 mt-6">
+                                    <input type="text"
+                                        class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300"
+                                        placeholder="work.abc@gmail.com">
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div>
+                            <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 1.75c4.54 0 8.25 3.71 8.25 8.25S16.54 20.25 12 20.25c-4.54 0-8.25-3.71-8.25-8.25S7.46 3.75 12 3.75Zm.37 14.5a6.24 6.24 0 0 1-3.25-.87c.63-1.6 1.75-2.7 3.25-2.7s2.62 1.1 3.25 2.7a6.24 6.24 0 0 1-3.25.87Zm-4.42-3.4a6.06 6.06 0 0 1-1.6-2.35c1.16-.56 2.3-.88 3.45-.88s2.29.32 3.45.88a6.06 6.06 0 0 1-1.6 2.35 6.06 6.06 0 0 1-3.7 0ZM12 5.75a6.25 6.25 0 0 1 3.25.87c-.63 1.6-1.75 2.7-3.25 2.7s-2.62-1.1-3.25-2.7a6.25 6.25 0 0 1 3.25-.87ZM8.35 7.75a5.98 5.98 0 0 1 1.6-2.35c.56 1.16.88 2.3.88 3.45s-.32 2.29-.88 3.45a5.98 5.98 0 0 1-1.6-2.35ZM14.8 7.75a5.98 5.98 0 0 1 1.6 2.35c-.56-1.16-.88-2.3-.88-3.45s.32-2.29.88-3.45a5.98 5.98 0 0 1-1.6 2.35ZM12 18.25a6.25 6.25 0 0 1-3.25-.87c.63-1.6 1.75-2.7 3.25-2.7s2.62 1.1 3.25 2.7a6.25 6.25 0 0 1-3.25.87Zm0-11a5.98 5.98 0 0 1-1.6 2.35 5.98 5.98 0 0 1 1.6 2.35 5.98 5.98 0 0 1 1.6-2.35 5.98 5.98 0 0 1-1.6-2.35Z"/>
+                                </svg>
+                            </div>
+                            
+                            <h3 class="mb-2 text-xl font-bold dark:text-white">Portfolio</h3>
+                            <div class="w-full  mb-4 lg:mt-6">
+                                <div class="w-full  mb-4 mt-6">
+                                    <input type="text"
+                                        class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300"
+                                        placeholder="https://">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="flex space-x-8"> <!-- Flex container to align items in one row with spacing -->
+                        <!-- GitHub Section -->
+                        <div class="flex-1">
+                            <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 .5C5.74.5.5 5.74.5 12c0 5.1 3.3 9.4 7.9 10.9.58.1.78-.26.78-.55v-2c-3.23.7-3.9-1.5-3.9-1.5-.53-1.35-1.29-1.72-1.29-1.72-.9-.6.07-.59.07-.59 1.1.08 1.69 1.12 1.69 1.12.92 1.58 2.45 1.12 3.04.86.1-.67.36-1.13.65-1.39-2.57-.29-5.27-1.29-5.27-5.74 0-1.27.45-2.31 1.18-3.13-.1-.28-.5-1.39.1-2.9 0 0 .97-.31 3.17 1.17.92-.25 1.9-.37 2.88-.38.98.01 1.96.13 2.88.38 2.2-1.48 3.17-1.17 3.17-1.17.6 1.51.2 2.62.1 2.9.73.82 1.18 1.86 1.18 3.13 0 4.46-2.7 5.45-5.27 5.74.37.32.69.95.69 1.91v2.85c0 .29.2.65.78.55 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.74 18.26.5 12 .5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-bold dark:text-white">GitHub</h3>
+                            <div class="w-full mb-4 lg:mt-6">
+                                <input type="url" class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300" placeholder="https://github.com/username">
+                            </div>
+                        </div>
+                    
+                        <!-- LinkedIn Section -->
+                        <div class="flex-1">
+                            <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5C4.47 3 4 3.47 4 4v16c0 .53.47 1 1 1h14c.53 0 1-.47 1-1V4c0-.53-.47-1-1-1zM8.27 19.5H6.03V10h2.24v9.5zm-1.13-10.62a1.37 1.37 0 1 1 0-2.75c.76 0 1.37.61 1.37 1.38s-.61 1.37-1.37 1.37zm12.38 10.62h-2.24v-4.59c0-1.09-.39-1.84-1.35-1.84-.74 0-1.18.5-1.37.99-.07.18-.08.42-.08.66v4.78h-2.24s.03-7.75 0-8.5h2.24v1.2c.3-.46.85-1.11 2.08-1.11 1.52 0 2.67 1 2.67 3.13v5.28z"/>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-bold dark:text-white">LinkedIn</h3>
+                            <div class="w-full mb-4 lg:mt-6">
+                                <input type="url" class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300" placeholder="https://linkedin.com/in/username">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        
+            <hr class="my-4 border-gray-600 opacity-35">
+
+    <section class="space-y-4">
+
+        <label for="experience" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Professional Overview</label>
+        
+        <div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+            <div class="w-3/4 mb-4 mt-6">
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea id="message" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-black rounded-lg border-2 border-gray-600 dark:bg-black dark:border-gray-600 dark:text-white focus:ring-blue-500 focus:border-blue-500 hover:bg-gray-800 transition-all duration-300"
+                    placeholder="Show Your Skills and Technology you commands on..."></textarea>
+            </div>
+        </div><br>
+        
+        <!-- Add Skills and Languges -->
+        
+        <div class="w-full max-w-3xl mx-auto px-4">
+
+            <!-- Experience Level Label -->
+            <label for="experience" class="block mb-6 text-xl font-semibold text-gray-100 text-left">Experience Level</label>
+            
+            <div class="flex flex-col lg:flex-row gap-4 justify-center items-center w-full">
+                
+              <!-- Entry Level Card -->
+              <label class="relative p-6 border border-gray-600 rounded-lg cursor-pointer hover:border-gray-400 transition w-full lg:w-1/3">
+                <input type="radio" name="experience" class="absolute top-4 right-4 w-5 h-5 text-gray-800 bg-transparent border-gray-600 focus:ring-gray-500 cursor-pointer" />
+                <div class="text-lg font-medium text-white">Entry level</div>
+                <p class="text-sm text-gray-400 mt-1">I am relatively new to this field</p>
+              </label>
+              
+              <!-- Intermediate Card -->
+              <label class="relative p-6 border border-gray-600 rounded-lg cursor-pointer hover:border-gray-400 transition w-full lg:w-1/3">
+                <input type="radio" name="experience" class="absolute top-4 right-4 w-5 h-5 text-gray-800 bg-transparent border-gray-600 focus:ring-gray-500 cursor-pointer" />
+                <div class="text-lg font-medium text-white">Intermediate</div>
+                <p class="text-sm text-gray-400 mt-1">I have substantial experience in this field</p>
+              </label>
+              
+              <!-- Expert Card -->
+              <label class="relative p-6 border border-gray-600 rounded-lg cursor-pointer hover:border-gray-400 transition w-full lg:w-1/3">
+                <input type="radio" name="experience" class="absolute top-4 right-4 w-5 h-5 text-gray-800 bg-transparent border-gray-600 focus:ring-gray-500 cursor-pointer" />
+                <div class="text-lg font-medium text-white">Expert</div>
+                <p class="text-sm text-gray-400 mt-1">I have comprehensive and deep expertise in this field</p>
+              </label>
+              
+            </div><br><br>
+        
+          </div>              
+        </section>
+        <hr class="my-4 border-gray-600 opacity-35">
+        <section>
+
+            <label for="experience" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Work Experience</label>
+            <div class="container mx-auto my-8 p-4 flex justify-center">
+                <div class="max-w-3xl w-full">
+                    
+        
+                    <!-- Work Experience Entries -->
+                    <div id="workExperienceFields" class="space-y-4">
+                        <!-- Job Entry Template -->
+                        <div class="job-entry p-6 rounded-lg bg-transparent text-white">
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- Job Title -->
+                                <div class="col-span-1">
+                                    <label for="jobTitle" class="block text-sm font-medium text-gray-300">Job Title</label>
+                                    <input type="text" id="jobTitle" name="jobTitle" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Enter your job title">
+                                </div>
+                                <!-- Company Name -->
+                                <div class="col-span-1">
+                                    <label for="companyName" class="block text-sm font-medium text-gray-300">Company Name</label>
+                                    <input type="text" id="companyName" name="companyName" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Enter company name">
+                                </div>
+                            </div>
+        
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <!-- Start Date -->
+                                <div class="col-span-1">
+                                    <label for="startDate" class="block text-sm font-medium text-gray-300">Start Date</label>
+                                    <input type="date" id="startDate" name="startDate" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300">
+                                </div>
+                                <!-- End Date -->
+                                <div class="col-span-1">
+                                    <label for="endDate" class="block text-sm font-medium text-gray-300">End Date</label>
+                                    <input type="date" id="endDate" name="endDate" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300">
+                                </div>
+                            </div>
+        
+                            <div class="mt-4">
+                                <label for="responsibilities" class="block text-sm font-medium text-gray-300">Responsibilities</label>
+                                <textarea id="responsibilities" name="responsibilities" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Describe your responsibilities in the role"></textarea>
+                            </div>
+        
+                            <!-- Still working checkbox -->
+                            <div class="mt-4 flex items-center">
+                                <input type="checkbox" id="stillWorking" name="stillWorking" class="h-5 w-5 text-indigo-500 focus:ring-indigo-500 border-gray-600 rounded" />
+                                <label for="stillWorking" class="ml-2 text-sm text-gray-300">I am still working at this job</label>
+                            </div>
+                            <br>
+        
+                            <!-- New Add Job Button -->
+                            <button type="button" 
+                                class="w-2/2 py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300"
+                                onmouseover="this.style.backgroundColor='#4B90F9'; this.style.color='white';" 
+                                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B90F9';" 
+                                id="addJobBtn">
+                                + Add More Experience
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+          
+          <script>
+            // Adding functionality for adding more job entries
+            document.getElementById("addJobBtn").addEventListener("click", function () {
+              const jobFields = document.querySelector("#workExperienceFields");
+              const newJobEntry = document.querySelector(".job-entry").cloneNode(true);
+              jobFields.appendChild(newJobEntry);
+            });
+          </script>
+          
+          <hr class="my-4 border-gray-600 opacity-35"> 
+        
+          <!-- Education -->
+          <section>
+            <br><label for="education" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Add Your Education</label>
+            <div class="container mx-auto my-8 p-4 flex justify-center">
+                <div class="max-w-3xl w-full">
+                    
+        
+                    <!-- Education Entries -->
+                    <div id="educationFields" class="space-y-4">
+                        <!-- Education Entry Template -->
+                        <div class="education-entry p-6 rounded-lg bg-transparent text-white border-gray-600">
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- Degree -->
+                                <div class="col-span-1">
+                                    <label for="degree" class="block text-sm font-medium text-gray-300">Degree</label>
+                                    <input type="text" id="degree" name="degree" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Enter your degree">
+                                </div>
+                                <!-- University Name -->
+                                <div class="col-span-1">
+                                    <label for="university" class="block text-sm font-medium text-gray-300">University/College</label>
+                                    <input type="text" id="university" name="university" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Enter university name">
+                                </div>
+                            </div>
+        
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <!-- Start Date -->
+                                <div class="col-span-1">
+                                    <label for="educationStartDate" class="block text-sm font-medium text-gray-300">Start Date</label>
+                                    <input type="date" id="educationStartDate" name="educationStartDate" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300">
+                                </div>
+                                <!-- End Date -->
+                                <div class="col-span-1">
+                                    <label for="educationEndDate" class="block text-sm font-medium text-gray-300">End Date</label>
+                                    <input type="date" id="educationEndDate" name="educationEndDate" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300">
+                                </div>
+                            </div>
+        
+                            <div class="mt-4">
+                                <label for="educationResponsibilities" class="block text-sm font-medium text-gray-300">Description</label>
+                                <textarea id="educationResponsibilities" name="educationResponsibilities" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Describe your studies or coursework"></textarea>
+                            </div>
+        
+                            <!-- Still Studying checkbox -->
+                            <div class="mt-4 flex items-center">
+                                <input type="checkbox" id="stillStudying" name="stillStudying" class="h-5 w-5 text-indigo-500 focus:ring-indigo-500 border-gray-600 rounded" />
+                                <label for="stillStudying" class="ml-2 text-sm text-gray-300">I am still studying</label>
+                            </div>
+                            <br>
+        
+                            <!-- Add Education Button -->
+                            <button type="button" 
+                                class="w-2/2 py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300"
+                                onmouseover="this.style.backgroundColor='#4B90F9'; this.style.color='white';" 
+                                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B90F9';" 
+                                id="addEducationBtn">
+                                + Add More Education
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+          <script>
+            document.getElementById("addEducationBtn").addEventListener("click", function () {
+                const educationFields = document.querySelector("#educationFields");
+                const newEducationEntry = document.querySelector(".education-entry").cloneNode(true);
+            
+                // Clear input fields in the cloned element
+                newEducationEntry.querySelectorAll("input, textarea").forEach(field => field.value = "");
+            
+                // Append cloned entry to the education fields container
+                educationFields.appendChild(newEducationEntry);
+            });
+            
+          </script>
+          <hr class="my-4 border-gray-600 opacity-35">  
+        
+          <section>
+            <br><label for="projects" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Add Your Projects</label>    
+            <div class="container mx-auto my-8 p-4 flex justify-center">
+                <div class="max-w-3xl w-full">
+                    
+        
+                    <!-- Projects Entries -->
+                    <div id="projectFields" class="space-y-4">
+                        <!-- Project Entry Template -->
+                        <div class="project-entry p-6 rounded-lg bg-transparent text-white border-gray-600">
+                            <!-- Project Title -->
+                            <div class="mb-4">
+                                <label for="projectTitle" class="block text-sm font-medium text-gray-300">Project Title</label>
+                                <input type="text" id="projectTitle" name="projectTitle" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Enter project title">
+                            </div>
+        
+                            <!-- Project Description -->
+                            <div class="mb-4">
+                                <label for="projectDescription" class="block text-sm font-medium text-gray-300">Project Description</label>
+                                <textarea id="projectDescription" name="projectDescription" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Describe your project"></textarea>
+                            </div>
+        
+                            <!-- Role or Contribution -->
+                            <div class="mb-4">
+                                <label for="projectRole" class="block text-sm font-medium text-gray-300">Role or Contribution</label>
+                                <input type="text" id="projectRole" name="projectRole" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Your role in the project">
+                            </div>
+        
+                            <!-- Skills Used -->
+                            <div class="mb-4">
+                                <label for="projectSkills" class="block text-sm font-medium text-gray-300">Skills Used</label>
+                                <input type="text" id="projectSkills" name="projectSkills" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Enter skills used (e.g., HTML, CSS, JS)">
+                            </div>
+        
+                            <!-- Links to Live Projects or Case Studies -->
+                            <div class="mb-4">
+                                <label for="projectLink" class="block text-sm font-medium text-gray-300">Links to Live Projects</label>
+                                <input type="url" id="projectLink" name="projectLink" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="https://">
+                            </div>
+        
+                            <div class="mb-4">
+                                <label for="projectGithubLink" class="block text-sm font-medium text-gray-300">Github Link</label>
+                                <input type="url" id="projectGithubLink" name="projectGithubLink" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 hover:bg-gray-800 transition-all duration-300" placeholder="Provide link (e.g., GitHub, Behance)">
+                            </div>
+        
+                            <!-- Project Images or Screenshots -->
+                            <div class="mb-4">
+                                <label for="projectImage" class="block text-sm font-medium text-gray-300">Project Images or Screenshots</label>
+                                <input type="file" id="projectImage" name="projectImage" class="mt-1 block w-full text-white" accept="image/*">
+                                <span class="text-sm text-gray-500">Upload image(s) here</span>
+                            </div>
+        
+                            <!-- Add More Project Button -->
+                            <button type="button" 
+                                class="w-2/2 mt-6 py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300"
+                                id="addProjectBtn">
+                                + Add More Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+          <script> 
+            document.getElementById("addProjectBtn").addEventListener("click", function () {
+                const projectFields = document.querySelector("#projectFields");
+                const newProjectEntry = document.querySelector(".project-entry").cloneNode(true);
+            
+                // Clear input fields in the cloned project entry
+                newProjectEntry.querySelectorAll("input[type='text'], input[type='url'], textarea").forEach(field => field.value = "");
+                newProjectEntry.querySelectorAll("input[type='file']").forEach(fileInput => fileInput.value = "");
+            
+                // Append cloned entry to the project fields container
+                projectFields.appendChild(newProjectEntry);
+            });
+            
+          </script>
+          
+        <hr class="my-4 border-gray-600 opacity-35"> 
+        <section>
+            <label for="work-preferences" class="block mb-6 py-3 px-6 text-xl font-semibold text-gray-100 text-left">Work Preferences</label>
+        
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+                <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+                    <!-- Preferred Work Type -->
+                    <div>
+                       
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">Preferred Work Type</h3>
+                        <div class="w-full  mb-4 lg:mt-6">
+                            <select class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300">
+                                <option value="remote">Remote</option>
+                                <option value="onsite">On-site</option>
+                                <option value="hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <!-- Preferred Project Length -->
+                    <div>
+                        
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">Preferred Project Length</h3>
+                        <div class="w-full  mb-4 lg:mt-6">
+                            <select class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300">
+                                <option value="short-term">Short-term</option>
+                                <option value="long-term">Long-term</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <!-- Industries of Interest -->
+                    <div>
+                        
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">Industries of Interest</h3>
+                        <div class="w-full  mb-4 lg:mt-6">
+                            <input type="text" 
+                                class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300"
+                                placeholder="e.g., Healthcare, Technology, Education">
+                        </div>
+                    </div>
+        
+                    <!-- Hourly Rate -->
+                    <div>
+                       
+                        <h3 class="mb-2 text-xl font-bold dark:text-white">Hourly Rate</h3>
+                        <div class="w-full  mb-4 lg:mt-6">
+                            <input type="number" 
+                                class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-black hover:bg-gray-800 transition-all duration-300"
+                                placeholder="Min $30" step="10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+                <!-- Update Profile Button -->
+                <div class="flex justify-center items-center ">
+                    <button type="button" 
+                            class="py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                            onmouseover="this.style.backgroundColor='#4B90F9'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B90F9';"
+                            onclick="window.location.href='';">
+                        Update Profile
+                    </button>
+                </div><br><br>  
+
+
+</form>
+</section>
+          
+      
+      
+      <script>
+              var loadFile = function(event) {
+                  
+                  var input = event.target;
+                  var file = input.files[0];
+                  var type = file.type;
+      
+                 var output = document.getElementById('preview_img');
+      
+      
+                  output.src = URL.createObjectURL(event.target.files[0]);
+                  output.onload = function() {
+                      URL.revokeObjectURL(output.src) // free memory
+                  }
+              };
+
+
+            
+
+            
+      </script>
+</body>
+</html>
