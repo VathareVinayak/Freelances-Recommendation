@@ -9,14 +9,15 @@
 <body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center py-10">
 
   <!-- Progress Steps -->
-  <div class="w-full max-w-3xl px-4 mb-8">
+   <!-- Progress Steps -->
+   <div class="w-full max-w-3xl px-4 mb-8">
     <div class="flex justify-between items-center">
       <div class="w-1/3 flex flex-col items-center">
-        <div class="bg-gray -500 w-10 h-10 rounded-full flex items-center justify-center">1</div>
+        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center">1</div>
         <p class="mt-2 text-sm">Overview</p>
       </div>
       <div class="w-1/3 flex flex-col items-center">
-        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center">2</div>
+        <div class="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center">2</div>
         <p class="mt-2 text-sm">Pricing & Packages</p>
       </div>
       <div class="w-1/3 flex flex-col items-center">
@@ -25,14 +26,14 @@
       </div>
       <div class="w-1/3 flex flex-col items-center">
         <div class="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center">4</div>
-        <p class="mt-2 text-sm">Requirements</p>
+        <p class="mt-2 text-sm">FAQ'S</p>
       </div>
       <div class="w-1/3 flex flex-col items-center">
         <div class="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center">5</div>
         <p class="mt-2 text-sm">Gallary</p>
       </div>
       <div class="w-1/3 flex flex-col items-center">
-        <div class="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center">6</div>
+        <div class="bg-gray-500 w-10 h-10 rounded-full flex items-center justify-center">5</div>
         <p class="mt-2 text-sm">Publish</p>
       </div>
     </div>
@@ -44,19 +45,72 @@
 
     <!-- General Info Section -->
     <section class="bg-slate-800 rounded-lg shadow-lg p-6 space-y-4">
-      <h2 class="text-2xl font-semibold text-white">Priceing and Packages</h2>
-            
-
-        <!-- Save and Continue Button -->
-        <div class="mt-8">
-            <button class="w-full p-3 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-semibold transition-colors duration-200">Save and Continue</button>
+      <h2 class="text-2xl font-semibold text-white">Pricing & Packages</h2>
+            <div class="container mx-auto p-8">
+          <!-- Table Structure -->
+          <table class="w-full table-auto border-collapse">
+            <thead>
+              <tr>
+                <!-- Header Row (Basic, Standard, Premium) -->
+                <th class="border border-gray-700 text-lg font-semibold p-4 bg-[#121826]">Basic</th>
+                <th class="border border-gray-700 text-lg font-semibold p-4 bg-[#121826]">Standard</th>
+                <th class="border border-gray-700 text-lg font-semibold p-4 bg-[#121826]">Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Second Row (Textboxes for each package) -->
+              <tr>
+                <td class="border border-gray-700 p-4">
+                  <input type="text" class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" placeholder="Enter service title for Basic">
+                </td>
+                <td class="border border-gray-700 p-4">
+                  <input type="text" class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" placeholder="Enter service title for Standard">
+                </td>
+                <td class="border border-gray-700 p-4">
+                  <input type="text" class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" placeholder="Enter service title for Premium">
+                </td>
+              </tr>
+      
+              <!-- Third Row (Description for each package) -->
+              <tr>
+                <td class="border border-gray-700 p-4">
+                  <textarea class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" rows="4" placeholder="Provide details of your project for Basic"></textarea>
+                </td>
+                <td class="border border-gray-700 p-4">
+                  <textarea class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" rows="4" placeholder="Provide details of your project for Standard"></textarea>
+                </td>
+                <td class="border border-gray-700 p-4">
+                  <textarea class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" rows="4" placeholder="Provide details of your project for Premium"></textarea>
+                </td>
+              </tr>
+      
+              <!-- Fourth Row (Rate for each package) -->
+              <tr>
+                <td class="border border-gray-700 p-4">
+                  <input type="text" class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" placeholder="Enter rate for Basic">
+                </td>
+                <td class="border border-gray-700 p-4">
+                  <input type="text" class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" placeholder="Enter rate for Standard">
+                </td>
+                <td class="border border-gray-700 p-4">
+                  <input type="text" class="w-full p-3 rounded-lg bg-[#1e2a37] text-white border border-gray-600" placeholder="Enter rate for Premium">
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
+      
+        <!-- Save and Continue Button -->
+        <div class="flex justify-center items-center mt-4">
+            <button type="button" 
+                    class="py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    onmouseover="this.style.backgroundColor='#4B90F9'; this.style.color='white';" 
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B90F9';">
+                Next 
+            </button>
+        </div><br/>
     </section>
   </div>
-
-
-  
 
   <!-- Footer -->
   <footer class="text-center py-6 bg-blue-500 mt-10 w-full">
