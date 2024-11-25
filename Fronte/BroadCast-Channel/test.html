@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gentle Server</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#030712] h-screen flex text-white">
+    <main class="flex w-full h-full">
+        <!-- Sidebar Section -->
+        <aside class="w-1/5 bg-[#111827] text-white flex flex-col p-4">
+            <h2 class="text-2xl font-bold mb-8">Gentle</h2>
+            <div class="flex-grow">
+                <div class="text-gray-400 mb-2">TEXT CHANNELS</div>
+                <div class="bg-gray-700 p-2 rounded cursor-pointer"># general</div>
+                <div class="mt-4 text-gray-400 mb-2">VOICE CHANNELS</div>
+                <div class="p-2 rounded cursor-pointer">🔊 General</div>
+            </div>
+        </aside>
+
+
+        
+        
+        <body class="bg-[#111827]">
+        
+            <!-- Chat Section -->
+            <section class="flex-grow p-8 flex flex-col relative">
+                <!-- Message Display Area -->
+                <div id="messageContainer" class="flex-grow overflow-y-auto space-y-4 p-4 bg-[#1A1F36] rounded-lg shadow-lg">
+                    <!-- Messages will appear here -->
+                </div>
+        
+                <!-- Chat Input Section -->
+                <div class="w-full p-4 bg-[#111827]">
+                    <div class="flex items-center px-3 py-2 rounded-lg bg-gray-700">
+                        <textarea id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-white bg-black rounded-lg border border-gray-300" placeholder="Your message..."></textarea>
+                        <button type="submit" onclick="sendMessage()" class="inline-flex justify-center p-2 text-blue-600 rounded-full hover:bg-blue-100">
+                            <svg class="w-5 h-5 rotate-90" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                                <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Button with Dropdown -->
+            <div class="relative inline-block">
+                <button id="dropdownTopButton" type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    </svg>
+                    <span class="sr-only">View more</span>
+                </button>
+        
+                <!-- Dropdown Menu -->
+                <div id="dropdownTop" class="z-10 hidden absolute bottom-full mb-2 bg-[#030712] divide-y divide-gray-700 rounded-lg shadow w-44">
+                    <ul class="py-2 text-sm text-white" aria-labelledby="dropdownTopButton">
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#1a1f36]" id="documentOption">Document</a>
+                        </li>
+                        <hr class="my-1 border-gray-600 opacity-20">
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#1a1f36]" id="pollOption">Poll</a>
+                        </li>
+                        <hr class="my-1 border-gray-600 opacity-20">
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-[#1a1f36]" id="imageOption">Image</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- File Input (hidden for document and image upload) -->
+            <input type="file" id="fileInput" class="hidden" accept="image/*,application/pdf" onchange="handleFileUpload(event)">
+            
+            <!-- Poll Modal (hidden by default) -->
+            <div id="pollModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div class="bg-white rounded-lg p-6 w-1/3">
+                    <h3 class="text-xl font-semibold mb-4">Create Poll</h3>
+                    <div id="pollOptions" class="mb-4">
+                        <input type="text" id="pollOption1" class="mb-2 p-2 w-full" placeholder="Option 1">
+                        <input type="text" id="pollOption2" class="mb-2 p-2 w-full" placeholder="Option 2">
+                    </div>
+                    <button onclick="submitPoll()" class="py-2 px-4 bg-blue-600 text-white rounded">Create Poll</button>
+                    <button onclick="closePollModal()" class="py-2 px-4 bg-gray-400 text-white rounded mt-2">Cancel</button>
+                </div>
+            </div>
+        
+            <script>
+                // Dropdown toggle
+                document.getElementById('dropdownTopButton').addEventListener('click', function() {
+                    const dropdown = document.getElementById('dropdownTop');
+                    dropdown.classList.toggle('hidden');
+                });
+        
+                // Handle Document Option
+                document.getElementById('documentOption').addEventListener('click', function() {
+                    document.getElementById('fileInput').click();  // Open file input for document
+                });
+        
+                // Handle Image Option
+                document.getElementById('imageOption').addEventListener('click', function() {
+                    document.getElementById('fileInput').click();  // Open file input for image
+                });
+        
+                // Handle Poll Option
+                document.getElementById('pollOption').addEventListener('click', function() {
+                    openPollModal();  // Open poll creation modal
+                });
+        
+                // Handle file upload (Document/Image)
+                function handleFileUpload(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const fileName = file.name;
+                        const fileType = file.type;
+                        if (fileType.startsWith('image/')) {
+                            alert(`You selected an image: ${fileName}`);
+                        } else if (fileType === 'application/pdf') {
+                            alert(`You selected a document: ${fileName}`);
+                        } else {
+                            alert('Unsupported file type.');
+                        }
+                    }
+                }
+        
+                // Open Poll Modal
+                function openPollModal() {
+                    document.getElementById('pollModal').classList.remove('hidden');
+                }
+        
+                // Close Poll Modal
+                function closePollModal() {
+                    document.getElementById('pollModal').classList.add('hidden');
+                }
+        
+                // Submit Poll
+                function submitPoll() {
+                    const option1 = document.getElementById('pollOption1').value;
+                    const option2 = document.getElementById('pollOption2').value;
+                    if (option1 && option2) {
+                        alert(`Poll Created with Options: \n1. ${option1}\n2. ${option2}`);
+                        closePollModal();  // Close modal after creating poll
+                    } else {
+                        alert('Please enter both options.');
+                    }
+                }
+        
+                // Send Message in Chat
+                function sendMessage() {
+                    const chatInput = document.getElementById('chat');
+                    const message = chatInput.value.trim();
+                    if (message) {
+                        const messageContainer = document.getElementById('messageContainer');
+                        const messageDiv = document.createElement('div');
+                        messageDiv.className = 'p-3 bg-[#2D3748] rounded-lg text-white w-fit max-w-md';
+                        messageDiv.textContent = message;
+                        messageContainer.insertBefore(messageDiv, messageContainer.firstChild); // Add message at the top
+                        chatInput.value = '';
+                        messageContainer.scrollTop = messageContainer.scrollHeight;
+                    }
+                }
+            </script>
+
+        
+
+    </main>
+</body>
+</html>
