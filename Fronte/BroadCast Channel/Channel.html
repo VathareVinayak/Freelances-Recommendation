@@ -83,6 +83,32 @@
                     Share Message
                 </button>
             </form>
+
+
+            <!-- Discussion UI Container -->
+            <div class="w-full bg-[#030712] rounded-lg border p-3 m-10 text-black">
+                <h3 class="font-semibold text-white p-1">Discussion</h3>
+                <div class="flex flex-col gap-5 m-3" id="discussion-container">
+                    <!-- Example Comment Container -->
+                    <div class="comment-container border rounded-md p-3">
+                        <div class="flex gap-3 items-center">
+                            <img src="https://avatars.githubusercontent.com/u/22263436?v=4" class="object-cover w-10 h-10 rounded-full border-2 border-emerald-400 shadow-emerald-400">
+                            <h3 class="font-bold text-white">User 1<br><span class="text-sm text-gray-400 font-normal">Domain</span></h3>
+                        </div>
+                        <p class="text-gray-600 mt-2">This is a sample comment</p>
+                        <div class="flex items-center mt-2 space-x-4">
+                            <button class="text-gray-400 hover:text-blue-500 flex items-center" onclick="toggleLike(this)">
+                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.248c-3.148-5.376-12-3.308-12 3.386 0 4.994 5.373 9.47 12 15.364 6.627-5.894 12-10.37 12-15.364 0-6.694-8.852-8.762-12-3.386z"/></svg>
+                                <span class="ml-1 like-count">0</span>
+                            </button>
+                            <button class="text-blue-500" onclick="addReply(this)">Reply</button>
+                        </div>
+                        <!-- Reply Container -->
+                        <div class="reply-container mt-4 ml-8 space-y-3"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- View Channels Section -->
@@ -190,6 +216,42 @@
             messageElement.remove();
         }
     }
+
+
+        // Function to handle replies
+        function addReply(button) {
+            const replyText = prompt("Enter your reply:");
+            if (replyText) {
+                const replyContainer = button.parentElement.nextElementSibling;  // Reply container
+                const replyElement = document.createElement("div");
+                replyElement.classList.add("flex", "gap-3", "items-center", "border", "rounded-md", "p-3", "bg-gray-800");
+    
+                replyElement.innerHTML = `
+                    <img src="https://avatars.githubusercontent.com/u/12345678?v=4" class="object-cover w-8 h-8 rounded-full border-2 border-indigo-400">
+                    <div>
+                        <h4 class="font-semibold text-white">User 2<br><span class="text-sm text-gray-400 font-normal">Domain</span></h4>
+                        <p class="text-gray-300 mt-1">${replyText}</p>
+                    </div>
+                `;
+                replyContainer.appendChild(replyElement);
+            }
+        }
+    
+        // Toggle Like Button
+        function toggleLike(button) {
+            const likeCount = button.querySelector('.like-count');
+            let count = parseInt(likeCount.innerText);
+            if (button.classList.contains('liked')) {
+                button.classList.remove('liked');
+                button.querySelector('svg').classList.remove('text-blue-500');
+                count--;
+            } else {
+                button.classList.add('liked');
+                button.querySelector('svg').classList.add('text-blue-500');
+                count++;
+            }
+            likeCount.innerText = count;
+        }
 </script>
 
 </body>
