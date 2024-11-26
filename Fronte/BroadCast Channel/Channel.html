@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroadCast - Channel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#030712] text-white">
+
+<div class="flex h-screen">
+ <!-- Sidebar -->
+<div class="hidden md:flex flex-col w-1/4 bg-[#1f2937] h-screen">
+    
+    <div class="flex items-center justify-center h-16 bg-gray-900">
+        <img class="rounded-full h-10 w-10" src="https://loremflickr.com/g/600/600/girl">&nbsp;
+        <span class="text-white text-2xl font-bold uppercase">#Channel Name</span>
+    </div>
+    <div class="flex flex-col flex-1 overflow-y-auto">
+        <nav class="flex-1 px-4 py-6 space-y-4">
+            <a href="#" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 transition duration-300" onclick="showSection('post-chat')">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 9h6m-6 3h6m-6 3h6M6.996 9h.01m-.01 3h.01m-.01 3h.01M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+                  </svg>&nbsp;  
+                   Post Chat
+            </a>
+            <a href="#" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 transition duration-300" onclick="showSection('view-channels')">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.03v13m0-13c-2.819-.831-4.715-1.076-8.029-1.023A.99.99 0 0 0 3 6v11c0 .563.466 1.014 1.03 1.007 3.122-.043 5.018.212 7.97 1.023m0-13c2.819-.831 4.715-1.076 8.029-1.023A.99.99 0 0 1 21 6v11c0 .563-.466 1.014-1.03 1.007-3.122-.043-5.018.212-7.97 1.023"/>
+                  </svg>&nbsp;                   
+                View Channels
+            </a>
+
+            <a href="#" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 transition duration-300" onclick="showSection('classes')">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z" clip-rule="evenodd"/>
+                  </svg>
+                  &nbsp;                   
+                Users
+            </a>
+
+        </nav>
+    </div>
+</div>
+
+
+    <!-- Main Content Area -->
+    <div class="flex-1 p-10">
+        <!-- Post Chat Section -->
+        <div id="post-chat" class="block">
+            <div class="text-center mb-4">
+                <p class="text-lg text-white font-semibold">Post Your Message</p>
+            </div>
+            <hr class="my-4 border-gray-600 opacity-35">
+                            
+            <form class="space-y-6" id="chat-form">
+                <!-- Channel Name -->
+                <div class="mb-4">
+                    <label for="title" class="block text-gray-300 mb-2">Add Title</label>
+                    <input type="text" id="title"
+                        class="p-4 w-full border-2 rounded-lg text-gray-200 border-gray-600 bg-black 
+                            focus:ring-blue-500 focus:border-blue-500 
+                            hover:bg-gray-800 transition-all duration-300" 
+                        placeholder="Enter Your Title">
+                </div>
+
+                <!-- Description Field -->
+                <div class="mt-4">
+                    <label for="description" class="block text-gray-300 mb-2">Description</label>
+                    <textarea id="description" rows="4"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md bg-black text-white 
+                            focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 
+                            hover:bg-gray-800 transition-all duration-300" 
+                        placeholder="Insert Data..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button"
+                    class="w-full justify-center py-3 px-6 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300"
+                    onclick="postMessage()">
+                    Share Message
+                </button>
+            </form>
+        </div>
+
+        <!-- View Channels Section -->
+        <div id="view-channels" class="hidden">
+            <h3 class="text-2xl font-semibold mb-4">Channel Messages</h3>
+            <div id="message-container" class="space-y-4"></div>
+        </div>
+
+     <!-- Classes Section -->
+<div id="classes" class="hidden">
+    <div class="bg-[#030712] p-8 overflow-auto mt-16 h-screen">
+        <h2 class="text-2xl mb-4">Members List</h2>
+
+        <!-- Total Members Display -->
+        <div class="mb-4 text-white text-sm">
+            <span>Total Members: <strong>1</strong></span>
+        </div>
+
+        <!-- Classes Table -->
+        <div class="relative overflow-auto">
+            <div class="overflow-x-auto rounded-lg">
+                <table class="min-w-full bg-[#030712] border mb-20">
+                    <thead>
+                        <tr class="bg-[#2B4DC994] text-center text-xs md:text-sm font-thin text-white">
+                            <th class="p-0">
+                                <span class="block py-2 px-3 border-r border-gray-300">ID</span>
+                            </th>
+                            <th class="p-0">
+                                <span class="block py-2 px-3 border-r border-gray-300">Members</span>
+                            </th>
+                            <th class="p-0">
+                                <span class="block py-2 px-3 border-r border-gray-300">Domain</span>
+                            </th>
+                            <th class="p-4 text-xs md:text-sm">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-[#040c17]">
+                        <tr class="bg-gray-800 border-b">
+                            <td class="p-2 pl-4 text-xs md:text-sm font-light text-white">1</td>
+                            <td class="p-2 text-xs md:text-sm font-light text-white">Shreyash</td>
+                            <td class="p-2 text-xs md:text-sm font-light text-white">Web Development</td>
+                            <td class="text-xs md:text-sm p-4 text-center">
+                                <div class="flex justify-center gap-2">
+                                    <button class="py-1 px-2 text-sm bg-blue-600 text-white rounded">View</button>
+                                    <button class="py-1 px-2 text-sm bg-red-400 text-white rounded">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+</div>
+
+<script>
+    // Show section based on menu click
+    function showSection(sectionId) {
+        document.getElementById("post-chat").classList.add("hidden");
+        document.getElementById("view-channels").classList.add("hidden");
+        document.getElementById("classes").classList.add("hidden");
+
+        document.getElementById(sectionId).classList.remove("hidden");
+    }
+
+    // Simulate posting a message
+    function postMessage() {
+        const messageContainer = document.getElementById("message-container");
+        const messageTitle = document.getElementById("title").value;
+        const messageDescription = document.getElementById("description").value;
+        const messageId = new Date().getTime();  // unique message id
+
+        if (messageTitle && messageDescription) {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("bg-gray-800", "rounded-lg", "p-4", "space-y-2");
+            messageElement.id = `message-${messageId}`;
+            messageElement.innerHTML = `
+                <div class="font-bold text-lg text-white">${messageTitle}</div>
+                <p class="text-white">${messageDescription}</p>
+                <div class="flex gap-2">
+                    <button class="text-sm text-blue-500 hover:underline" onclick="viewMessage(${messageId})">View</button>
+                    <button class="text-sm text-green-500 hover:underline" onclick="editMessage(${messageId})">Edit</button>
+                    <button class="text-sm text-red-500 hover:underline" onclick="deleteMessage(${messageId})">Delete</button>
+                </div>
+            `;
+            messageContainer.appendChild(messageElement);
+        }
+    }
+
+    function viewMessage(messageId) {
+        alert("Viewing message ID " + messageId);
+    }
+
+    function editMessage(messageId) {
+        alert("Editing message ID " + messageId);
+    }
+
+    function deleteMessage(messageId) {
+        const messageElement = document.getElementById(`message-${messageId}`);
+        if (messageElement) {
+            messageElement.remove();
+        }
+    }
+</script>
+
+</body>
+</html>
