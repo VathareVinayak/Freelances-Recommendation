@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore, Find Collaboration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="bg-[#030712] flex flex-col text-white min-h-screen">
+        <!-- Main Content -->
+        <main class="flex-1 p-4 md:p-6">
+            <!-- Header -->
+            <div class="flex items-center justify-center h-16">
+                <span class="text-white text-3xl">All Projects</span>
+            </div>
+
+            <!-- Search Bar -->
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-transparent border-0  hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-2 dark:bg-transparent dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Search
+                </button>
+            </div><br/><br/>
+
+
+            <!-- Project Cards Container -->
+            <div class="space-y-6">
+                <!-- Project Card -->
+                <div class="bg-[#030712] border border-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-4xl text-white mb-4">Job Recommendation Systems</h3>
+                    <p class="leading-relaxed text-gray-400">
+                        In today's competitive job market, both job seekers and recruiters face challenges in finding the right match...
+                    </p>
+                    <button class="mt-4 text-blue-500 focus:outline-none">Read More</button>
+                    <div class="mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                        <div class="flex space-x-2 mb-4 md:mb-0">
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Kubernetes</span>
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Machine Learning</span>
+                        </div>
+                        <button class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition">
+                            View Details →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Duplicate structure for other cards -->
+                <!-- Second Project Card -->
+                <div class="bg-[#030712] border border-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-4xl text-white mb-4">House Price Predictions</h3>
+                    <p class="leading-relaxed text-gray-400">
+                        The "House Price Prediction" project aims to leverage machine learning techniques to predict house prices...
+                    </p>
+                    <button class="mt-4 text-blue-500 focus:outline-none">Read More</button>
+                    <div class="mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                        <div class="flex space-x-2 mb-4 md:mb-0">
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Data Science</span>
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Model Building</span>
+                        </div>
+                        <button class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition">
+                            View Details →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Third Project Card -->
+                <div class="bg-[#030712] border border-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-4xl text-white mb-4">Voice Recognition Using AI</h3>
+                    <p class="leading-relaxed text-gray-400">
+                        Voice recognition technology leverages Artificial Intelligence (AI) to understand and interpret human speech...
+                    </p>
+                    <button class="mt-4 text-blue-500 focus:outline-none">Read More</button>
+                    <div class="mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                        <div class="flex space-x-2 mb-4 md:mb-0">
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">AI</span>
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Neural Networks</span>
+                            <span class="bg-gray-700 px-2 py-1 rounded-full">Jupyter Notebook</span>
+                        </div>
+                        <button class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition">
+                            View Details →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>          
+</body>
+</html>
