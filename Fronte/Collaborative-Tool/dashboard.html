@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelancer Collaboration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Keyframe Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-white font-sans">
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-violet-500 py-16 text-center">
+    <h1 class="text-4xl font-bold mb-4">Collaborate and Succeed</h1>
+    <p class="text-lg mb-6">Join projects, contribute, and build connections.</p>
+   
+    <!-- Dashboard Buttons -->
+    <div class="flex flex-col md:flex-row justify-center items-center gap-8 w-full px-4">
+      <!-- Post Collaboration Button -->
+      <a href="./new-collaboration.html" class="w-full md:w-1/2 flex justify-center">
+        <button class="flex items-center justify-center w-full md:w-3/4 py-3 px-6 border-2 border-gray-500 text-white font-semibold rounded-full hover:bg-blue-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300 gap-2">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"/>
+          </svg>
+          My Collaboration
+        </button>
+      </a>
+    
+      <!-- View Joined Projects Button -->
+      <a href="./Explore-Collaboration.html" class="w-full md:w-1/2 flex justify-center">
+        <button class="flex items-center justify-center w-full md:w-3/4 py-3 px-6 border-2 border-gray-500 text-white font-semibold rounded-full hover:bg-violet-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300 gap-2">
+          <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z" clip-rule="evenodd"/>
+          </svg>
+          View Joined Projects
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Key Features</h2>
+    <div class="flex flex-wrap justify-center gap-6 px-4">
+      <div class="bg-gray-900 border-gray-600 p-6 rounded-lg shadow-lg w-full sm:w-64 fade-in hover:scale-105 transition transform">
+        <h4 class="text-xl font-semibold mb-2 text-white">Task Management</h4>
+        <p class="text-white">Organize your work efficiently with task boards.</p>
+      </div>
+      <div class="bg-gray-900 border-gray-600 p-6 rounded-lg shadow-lg w-full sm:w-64 fade-in hover:scale-105 transition transform">
+        <h4 class="text-xl font-semibold mb-2 text-white">Collaborate</h4>
+        <p class="text-white">Work with freelancers worldwide on shared projects.</p>
+      </div>
+      <div class="bg-gray-900 border-gray-600 p-6 rounded-lg shadow-lg w-full sm:w-64 fade-in hover:scale-105 transition transform">
+        <h4 class="text-xl font-semibold mb-2 text-white">Secure Payments</h4>
+        <p class="text-white">Use milestone-based payment systems for transparency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommended Collaboration Projects -->
+  <section class="py-12 bg-slate-950">
+    <h2 class="text-3xl font-bold text-center mb-8">Recommended Collaborations</h2>
+    <div class="flex flex-wrap justify-center gap-6 px-4">
+      <!-- Collaboration Card 1 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-80 hover:scale-105 transition transform fade-in">
+        <img src="https://www.dmsteps.com/wp-content/uploads/2020/11/e-commerce-website-design-service-500x500-1-300x300-1-300x300.jpg" alt="Project Image" class="rounded-lg mb-4 w-full">
+        <h3 class="text-xl font-bold text-white mb-2">E-commerce Website</h3>
+        <p class="text-white mb-4">Collaborate on building a scalable online store.</p>
+        <button class="w-full py-3 border-2 border-blue-600 text-white font-semibold rounded-full hover:bg-blue-600 transition duration-300">Join Now</button>
+      </div>
+      <!-- Collaboration Card 2 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-80 hover:scale-105 transition transform fade-in">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdO0p-BCCTXtUOqf3oCJB-YT9euS2OCWWWQ&s" alt="Project Image" class="rounded-lg mb-4 w-full">
+        <h3 class="text-xl font-bold text-white mb-2">Mobile App Development</h3>
+        <p class="text-white mb-4">Help design and develop a user-friendly mobile app.</p>
+        <button class="w-full py-3 border-2 border-blue-600 text-white font-semibold rounded-full hover:bg-blue-600 transition duration-300">Join Now</button>
+      </div>
+      <!-- Collaboration Card 3 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-80 hover:scale-105 transition transform fade-in">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJEfK5gKh4FMxOtmAFObi70WwEhSlVaPB5khlBLZTsheXkD81Cc1AWkP9RcgCHoqvJeT0&usqp=CAU" alt="Project Image" class="rounded-lg mb-4 w-full">
+        <h3 class="text-xl font-bold text-white mb-2">AI Chatbot Development</h3>
+        <p class="text-white mb-4">Contribute to building an AI-powered virtual assistant.</p>
+        <button class="w-full py-3 border-2 border-blue-600 text-white font-semibold rounded-full hover:bg-blue-600 transition duration-300">Join Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="py-12 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white">
+    <h2 class="text-3xl font-bold text-center mb-8">Workflow Overview</h2>
+    <div class="flex flex-wrap justify-center gap-8 px-4">
+      <!-- Step 1 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-64 text-center fade-in hover:scale-105 transition transform">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Step 1" class="rounded-full w-20 mx-auto mb-4">
+        <h3 class="text-xl font-bold mb-2">Step 1: Register</h3>
+        <p class="text-gray-300">Create an account and set up your profile to get started.</p>
+      </div>
+  
+      <!-- Step 2 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-64 text-center fade-in hover:scale-105 transition transform">
+        <img src="https://cdn-icons-png.flaticon.com/512/3037/3037076.png" alt="Step 2" class="rounded-full w-20 mx-auto mb-4">
+        <h3 class="text-xl font-bold mb-2">Step 2: Explore Projects</h3>
+        <p class="text-gray-300">Browse through available projects and find one that suits your skills.</p>
+      </div>
+  
+      <!-- Step 3 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-64 text-center fade-in hover:scale-105 transition transform">
+        <img src="https://cdn-icons-png.flaticon.com/512/1302/1302478.png" alt="Step 3" class="rounded-full w-20 mx-auto mb-4">
+        <h3 class="text-xl font-bold mb-2">Step 3: Collaborate</h3>
+        <p class="text-gray-300">Join the team, communicate with members, and start working.</p>
+      </div>
+  
+      <!-- Step 4 -->
+      <div class="bg-gray-900 rounded-lg shadow-lg p-6 w-full sm:w-64 text-center fade-in hover:scale-105 transition transform">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747606.png" alt="Step 4" class="rounded-full w-20 mx-auto mb-4">
+        <h3 class="text-xl font-bold mb-2">Step 4: Complete & Review</h3>
+        <p class="text-gray-300">Submit your work and get feedback from your collaborators.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>&copy; 2024 Freelancer Collaboration Tool. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
