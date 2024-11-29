@@ -1,6 +1,6 @@
 
 
-# 🌟 **NeuraFlow - Freelancing Platform**
+# 🌟 **NeuraFlow - Freelancing Platform & Community Fourm**
 
 **NeuraFlow** is an AI-powered freelancing platform designed to seamlessly connect clients with the right freelancers. Leveraging machine learning, NeuraFlow ensures precise talent recommendations, fosters collaboration, and builds a dynamic freelancer community.
 
