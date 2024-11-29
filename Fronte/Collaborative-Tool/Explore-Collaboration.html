@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore , Find Collaboration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+
+</head>
+<body>
+    <div class="bg-slate-950 flex bg-gray-900 text-white min-h-screen">
+        <aside class="lg:w-64 bg-gray-800 p-4 lg:sticky top-0 hidden lg:block" id="sidebar">
+            <h2 class="text-lg font-semibold mb-4 text-white">Filter by</h2><br />
+        
+            <!-- Select Domains Section -->
+            <h5 class="text-sm font-semibold mb-4 text-white">Select Domains</h5>
+            <ul class="space-y-3">
+                <li class="flex items-center">
+                    <input type="checkbox" id="filter-code" class="mr-2">
+                    <label for="filter-code" class="text-gray-300 hover:text-white cursor-pointer">
+                        Data Science <span class="text-gray-500">(4M)</span>
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="filter-repositories" class="mr-2">
+                    <label for="filter-repositories" class="text-gray-300 hover:text-white cursor-pointer">
+                        AI & Ml <span class="text-gray-500">(65.2k)</span>
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="filter-issues" class="mr-2">
+                    <label for="filter-issues" class="text-gray-300 hover:text-white cursor-pointer">
+                        Web Development <span class="text-gray-500">(140k)</span>
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="filter-pull-requests" class="mr-2">
+                    <label for="filter-pull-requests" class="text-gray-300 hover:text-white cursor-pointer">
+                        Content Writing <span class="text-gray-500">(277k)</span>
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="filter-discussions" class="mr-2">
+                    <label for="filter-discussions" class="text-gray-300 hover:text-white cursor-pointer">
+                        Video <span class="text-gray-500">(6k)</span>
+                    </label>
+                </li>
+            </ul>
+        
+            <!-- Languages Section -->
+            <h5 class="text-sm font-semibold mt-6 mb-4 text-white">Languages</h5>
+            <ul class="space-y-3">
+                <li class="flex items-center">
+                    <input type="checkbox" id="language-python" class="mr-2">
+                    <label for="language-python" class="text-gray-300 hover:text-white cursor-pointer">
+                        Python
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="language-jupyter" class="mr-2">
+                    <label for="language-jupyter" class="text-gray-300 hover:text-white cursor-pointer">
+                        Jupyter Notebook
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="language-javascript" class="mr-2">
+                    <label for="language-javascript" class="text-gray-300 hover:text-white cursor-pointer">
+                        JavaScript
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="language-html" class="mr-2">
+                    <label for="language-html" class="text-gray-300 hover:text-white cursor-pointer">
+                        HTML
+                    </label>
+                </li>
+                <li class="flex items-center">
+                    <input type="checkbox" id="language-java" class="mr-2">
+                    <label for="language-java" class="text-gray-300 hover:text-white cursor-pointer">
+                        Java
+                    </label>
+                </li>
+            </ul>
+        
+            <!-- New Collaboration Button -->
+            <div class="mt-6">
+                <a href="./post-collaboration.html">
+                    <button type="button"
+                        class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        New Collaboration
+                    </button>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Header with SVG Icon -->
+<header class="lg:hidden item-center justify-between p-4 bg-gray-800">
+    <!-- SVG Icon for opening filters -->
+    <button id="filter-toggle-btn" class="text-white bg-gray-700 hover:bg-gray-600 p-2 rounded-full">
+        <!-- Example SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+   
+</header>
+
+<!-- Mobile Filter Sidebar (Hidden by default, shown when the button is clicked) -->
+<div id="mobile-sidebar" class="lg:hidden fixed inset-0 bg-gray-800 bg-opacity-80 z-50 hidden">
+    <div class="relative w-64 bg-gray-800 p-4 h-full">
+        <button id="close-sidebar" class="absolute top-2 right-2 text-white">
+            <!-- Close Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <h2 class="text-lg font-semibold mb-4 text-white">Filter by</h2><br/>
+        
+        <!-- Select Domains Section -->
+        <h5 class="text-sm font-semibold mb-4 text-white">Select Domains</h5>
+        <ul class="space-y-3">
+            <li class="flex items-center">
+                <input type="checkbox" id="filter-code" class="mr-2">
+                <label for="filter-code" class="text-gray-300 hover:text-white cursor-pointer">
+                    Data Science <span class="text-gray-500">(4M)</span>
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="filter-repositories" class="mr-2">
+                <label for="filter-repositories" class="text-gray-300 hover:text-white cursor-pointer">
+                    AI & Ml <span class="text-gray-500">(65.2k)</span>
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="filter-issues" class="mr-2">
+                <label for="filter-issues" class="text-gray-300 hover:text-white cursor-pointer">
+                    Web Development <span class="text-gray-500">(140k)</span>
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="filter-pull-requests" class="mr-2">
+                <label for="filter-pull-requests" class="text-gray-300 hover:text-white cursor-pointer">
+                    Content Writing <span class="text-gray-500">(277k)</span>
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="filter-discussions" class="mr-2">
+                <label for="filter-discussions" class="text-gray-300 hover:text-white cursor-pointer">
+                    Video <span class="text-gray-500">(6k)</span>
+                </label>
+            </li>
+        </ul>
+        
+        <!-- Languages Section -->
+        <h5 class="text-sm font-semibold mt-6 mb-4 text-white">Languages</h5>
+        <ul class="space-y-3">
+            <li class="flex items-center">
+                <input type="checkbox" id="language-python" class="mr-2">
+                <label for="language-python" class="text-gray-300 hover:text-white cursor-pointer">
+                    Python
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="language-jupyter" class="mr-2">
+                <label for="language-jupyter" class="text-gray-300 hover:text-white cursor-pointer">
+                    Jupyter Notebook
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="language-javascript" class="mr-2">
+                <label for="language-javascript" class="text-gray-300 hover:text-white cursor-pointer">
+                    JavaScript
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="language-html" class="mr-2">
+                <label for="language-html" class="text-gray-300 hover:text-white cursor-pointer">
+                    HTML
+                </label>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" id="language-java" class="mr-2">
+                <label for="language-java" class="text-gray-300 hover:text-white cursor-pointer">
+                    Java
+                </label>
+            </li>
+        </ul>
+
+        <!-- New Collaboration Button -->
+        <div class="mt-6">
+            <a href="./post-collaboration.html">
+                <button type="button"
+                    class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    New Collaboration
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const filterToggleBtn = document.getElementById('filter-toggle-btn');
+    const mobileSidebar = document.getElementById('mobile-sidebar');
+    const closeSidebarBtn = document.getElementById('close-sidebar');
+
+    filterToggleBtn.addEventListener('click', () => {
+        mobileSidebar.classList.remove('hidden');
+    });
+
+    closeSidebarBtn.addEventListener('click', () => {
+        mobileSidebar.classList.add('hidden');
+    });
+</script>
+
+        
+        
+      
+                <!-- Main Content -->
+                <main class="flex-1 p-6 bg-gradient-to-b from-slate-800 via-slate-900 to-black sm:bg-gradient-to-r md:bg-gradient-to-l lg:bg-gradient-to-t xl:bg-gradient-to-bl">
+                    <div class=" border border-black rounded-full flex justify-between items-center mb-6">
+                        <input type="text" placeholder="Search Collaboration" 
+                        class="bg-transparent w-full focus:outline-none pr-4 font-semibold border-0 focus:ring-0 px-8 py-0" 
+                        name="topic">
+                        <button class="flex flex-row items-center justify-center min-w-[150px] px-2 rounded-full font-medium tracking-wide border disabled:opacity-50 transition ease-in-out duration-150 text-base hover:bg-blue-600 hover:text-white border border-gray-800 font-medium tracking-wide  py-1.5 h-[38px]-mr-3" >
+                            Search
+                        </button>
+                    </div>
+
+                    <!-- Project Cards Container -->
+                    <div class="space-y-6">
+                        <!-- Project Card -->
+                        <div class="bg-gray-800 border border-white p-4 rounded-lg shadow">
+                            <!-- Profile Trigger -->
+                            <a href="#" class="flex items-center space-x-4" id="user-profile-trigger">
+                                <img class="w-10 h-10 rounded-full"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIYoh4hZs0aNfoHV2_ICiEMvWc4im06Y33Q&s"
+                                    alt="Jese Leos" />
+                                <div>
+                                    <p class="text-base font-semibold text-gray-900 dark:text-white">Jese Leos</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">@jeseleos</p>
+                                </div>
+                            </a>
+                            <h3 class="font-bold text-4xl text-white mb-4">Job Recommendation Systems</h3>
+                            <p class="leading-relaxed text-gray-400">
+                                In today's competitive job market, both job seekers and recruiters face challenges in finding the right match...
+                            </p>
+                            <button class="mt-4 text-blue-500 focus:outline-none">Read More</button>
+                            <div class="mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                                <div class="flex space-x-2 mb-4 md:mb-0">
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Python</span>
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Kubernetes</span>
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Machine Learning</span>
+                                </div>
+                                <button class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition">
+                                    View Details →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate structure for other cards -->
+                        <!-- Second Project Card -->
+                        <div class="bg-gray-800 border border-white p-4 rounded-lg shadow">
+                            <!-- Profile Trigger -->
+                            <a href="#" class="flex items-center space-x-4">
+                                <img class="w-10 h-10 rounded-full"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqkUYrITWyI8OhPNDHoCDUjGjhg8w10_HRqg&s"
+                                    alt="Alex Johnson" />
+                                <div>
+                                    <p class="text-base font-semibold text-gray-900 dark:text-white">Alex Johnson</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">@alexjohnson</p>
+                                </div>
+                            </a>
+                            <h3 class="font-bold text-4xl text-white mb-4">House Price Predictions</h3>
+                            <p class="leading-relaxed text-gray-400">
+                                The "House Price Prediction" project aims to leverage machine learning techniques to predict house prices...
+                            </p>
+                            <button class="mt-4 text-blue-500 focus:outline-none">Read More</button>
+                            <div class="mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                                <div class="flex space-x-2 mb-4 md:mb-0">
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Python</span>
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Data Science</span>
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Model Building</span>
+                                </div>
+                                <button class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition">
+                                    View Details →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Third Project Card -->
+                        <div class="bg-gray-800 border border-white p-4 rounded-lg shadow">
+                            <a href="#" class="flex items-center space-x-4" id="user-profile-trigger2">
+                                <img class="w-10 h-10 rounded-full"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpRfpo86SB6nHTlhI0FZFHPbdDb-y_QKJuvx6ugVdIEn1chvgrONhKsaG_spVs9sxjv84&usqp=CAU"
+                                    alt="Anna Doe" />
+                                <div>
+                                    <p class="text-base font-semibold text-gray-900 dark:text-white">Anna Doe</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">@annadoe</p>
+                                </div>
+                            </a>
+                            <h3 class="font-bold text-4xl text-white mb-4">Voice Recognition Using AI</h3>
+                            <p class="leading-relaxed text-gray-400">
+                                Voice recognition technology leverages Artificial Intelligence (AI) to understand and interpret human speech...
+                            </p>
+                            <button class="mt-4 text-blue-500 focus:outline-none">Read More</button>
+                            <div class="mt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                                <div class="flex space-x-2 mb-4 md:mb-0">
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">AI</span>
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Neural Networks</span>
+                                    <span class="bg-gray-700 px-2 py-1 rounded-full">Jupyter Notebook</span>
+                                </div>
+                                <button class="py-1 px-5 border-2 border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition">
+                                    View Details →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- JavaScript for toggle -->
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const toggleBtn2 = document.getElementById("toggle-btn2");
+                            const hideBtn2 = document.getElementById("hide-btn2");
+                            const moreText2 = document.getElementById("more-text2");
+                
+                            toggleBtn2.addEventListener("click", () => {
+                                moreText2.classList.remove("hidden");
+                                toggleBtn2.classList.add("hidden");
+                                hideBtn2.classList.remove("hidden");
+                            });
+                
+                            hideBtn2.addEventListener("click", () => {
+                                moreText2.classList.add("hidden");
+                                hideBtn2.classList.add("hidden");
+                                toggleBtn2.classList.remove("hidden");
+                            });
+                        });
+                    </script>
+               
+                </main>    
+                </div>
+                    
+            </div>
+           
+
+
+            
+      
+</body>
+</html>
