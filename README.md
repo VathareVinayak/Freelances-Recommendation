@@ -85,24 +85,6 @@
 
 ---
 
-## 📊 **Workflow Overview**
-
-### **Client Process**
-1. Log in and fill in project details (title, description, difficulty, deadline, budget).  
-2. Receive freelancer recommendations based on project requirements.  
-3. Review freelancer profiles and assign projects.  
-4. Provide feedback post-project to improve recommendations.  
-
-### **Freelancer Process**
-1. Log in and create a detailed profile (skills, experience, availability).  
-2. Apply for projects or receive invites based on personalized recommendations.  
-3. Collaborate with teams on large projects.  
-4. Participate in forums and register for events.  
-
----
-
----
-
 ## 🔧 **Setup Instructions**
 
 Open your favorite Terminal and run these commands:
@@ -129,7 +111,23 @@ Open your favorite Terminal and run these commands:
 ```bash
   npm run dev 
 ```
+---
 
+## 📊 **Workflow Overview**
+
+### **Client Process**
+1. Log in and fill in project details (title, description, difficulty, deadline, budget).  
+2. Receive freelancer recommendations based on project requirements.  
+3. Review freelancer profiles and assign projects.  
+4. Provide feedback post-project to improve recommendations.  
+
+### **Freelancer Process**
+1. Log in and create a detailed profile (skills, experience, availability).  
+2. Apply for projects or receive invites based on personalized recommendations.  
+3. Collaborate with teams on large projects.  
+4. Participate in forums and register for events.  
+
+---
 
 ## 📆 **Development Timeline**
 
@@ -166,5 +164,5 @@ Open your favorite Terminal and run these commands:
 
 ## 🌐 **Explore NeuraFlow**  
 NeuraFlow transforms freelancing by bridging talent and opportunity, fostering collaboration, and enhancing user experiences through innovative technology.
-
+You Can Review the website here :-  
 ---
