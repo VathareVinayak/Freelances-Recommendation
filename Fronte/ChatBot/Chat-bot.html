@@ -1,1 +1,142 @@
-fsd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot UI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</head>
+<body class="bg-[#030719] h-screen relative">
+
+  <!-- Chatbot Popup -->
+  <section id="chat-container" class="fixed bottom-20 right-7 w-96 shadow-xl rounded-full hidden flex-col">
+    <div class="relative">
+
+        <!-- Header Section -->
+        <div class="bg-gradient-to-r from-black to-gray-900 h-45 rounded-t-lg relative w-full z-0">
+            <!-- Top Buttons -->
+            <div class="flex justify-center p-4 space-x-4 relative">
+                <!-- Chat Button -->
+                <div class="group relative">
+                    <button class="flex items-center gap-2 border border-white text-white px-4 py-2 rounded-full hover:bg-gray-900">
+                        <svg class="w-[28px] h-[28px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z" clip-rule="evenodd"/>
+                        </svg>
+                        Chat
+                    </button>
+                    <!-- Tooltip -->
+                    <div class="absolute left-1/2 -translate-x-1/2 -top-10 hidden group-hover:block bg-[#030712] text-white text-sm py-1 px-2 rounded-lg shadow-lg">
+                        Start a conversation
+                    </div>
+                </div>
+
+                <!-- Help Button -->
+                <div class="group relative">
+                    <button class="flex items-center gap-2 border border-white text-white px-4 py-2 rounded-full hover:bg-gray-900">
+                        <svg class="w-[28px] h-[28px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>
+                        Help
+                    </button>
+                    <!-- Tooltip -->
+                    <div class="absolute left-1/2 -translate-x-1/2 -top-10 hidden group-hover:block bg-[#030712] text-white text-sm py-1 px-2 rounded-lg shadow-lg">
+                        Find project recommendations
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        
+        <div class="bg-gradient-to-r from-black to-gray-900 h-55 flex flex-col overflow-y-auto h-full p-4 space-y-4 z-10 relative">
+        <div class="text-white ml-4">
+          <hr class="my-4 border-gray-600 opacity-35">
+          <div class="text-3xl mb-2">Hey <span class=" bg-gradient-to-r from-white via-blue-500 to-gray-500 bg-clip-text text-transparent">Vinayak</span> 👋</div>
+          <div class="w-60 text-gray-200 text-sm mb-1">We helps you recommendations of project, Stay Connected with us..!</div>
+        </div>
+        
+        <!-- Chat Window -->
+        <div id="chat-window" class="flex flex-col border border-gray-800 space-y-4 h-64 overflow-y-auto bg-gradient-to-r from-brown-800 to-blue-800 rounded-lg p-4">
+          <div class="bg-blue-100 hover:bg-gray-600 hover:text-white text-gray-800 p-3 rounded-full w-fit max-w-xs">Hi! How can I assist you today?</div>
+        </div>
+        
+        <!-- Input Section -->
+        <div class="flex items-center gap-2 mt-2 p-3 bg-gradient-to-r from-black to-gray-900 rounded-lg">
+          <input
+            type="text"
+            id="user-input"
+            placeholder=" Type your message..."
+            class="flex-1 p-2 text-left rounded-full border border-white bg-gray-900 text-white border-black focus:ring-2 focus:ring-blue-500 "
+          />
+          <button id="send-button" class="text-white px-3 py-2 rounded-full border border-gray-600 bg-gradient-to-r from-blue-800 to-indigo-800"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
+          </svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Open/Close Button -->
+<button
+  id="toggle-chat"
+  class="fixed bottom-5 right-5 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full w-16 h-16 flex items-center justify-center cursor-pointer shadow-xl hover:from-pink-500 hover:to-blue-500 transition-all">
+  
+  <!-- SVG Icon -->
+  <svg class="w-[28px] h-[28px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z" clip-rule="evenodd"/>
+    <path fill-rule="evenodd" d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z" clip-rule="evenodd"/>
+  </svg>
+</button>
+
+
+  <script>
+    // References to DOM elements
+    const chatContainer = document.getElementById('chat-container');
+    const toggleChat = document.getElementById('toggle-chat');
+    const chatWindow = document.getElementById('chat-window');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    // Simulated chatbot responses
+    const responses = {
+      hello: "Hello! How can I assist you?",
+      help: "Sure! Let me know what you need help with.",
+      default: "I'm sorry, I didn't understand that. Could you rephrase?",
+    };
+
+    // Append a message to the chat window
+    function appendMessage(message, sender) {
+      const messageBubble = document.createElement('div');
+      messageBubble.className = `p-3 rounded-lg mb-3 max-w-xs w-fit ${
+        sender === 'user' ? 'bg-gray-200 text-gray-900 ml-auto' : 'bg-blue-100 text-blue-900'
+      }`;
+      messageBubble.textContent = message;
+      chatWindow.appendChild(messageBubble);
+      chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll
+    }
+
+    // Handle user input and generate chatbot response
+    function handleUserInput() {
+      const userMessage = userInput.value.trim();
+      if (!userMessage) return;
+      appendMessage(userMessage, 'user');
+      userInput.value = '';
+
+      const response = responses[userMessage.toLowerCase()] || responses.default;
+      setTimeout(() => appendMessage(response, 'bot'), 500);
+    }
+
+    // Toggle chat container visibility
+    toggleChat.addEventListener('click', () => {
+      chatContainer.classList.toggle('hidden');
+    });
+
+    // Add event listeners for chat input
+    sendButton.addEventListener('click', handleUserInput);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleUserInput();
+    });
+  </script>
+</body>
+</html>
