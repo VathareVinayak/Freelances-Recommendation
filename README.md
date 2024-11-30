@@ -52,8 +52,6 @@
 - **Profile Matching:** Ensures freelancers’ expertise aligns perfectly with project needs.  
 
 ---
-
-
 ## 💬 **Community and Forums**
 - **Topic-Based Discussions:** Foster networking and knowledge sharing among freelancers.  
 - **Q&A Sections:** Freelancers can ask questions and share insights.  
@@ -71,18 +69,18 @@
 - **Python:** Core backend logic and machine learning integration.  
 
 ### **Database**
-- **PostgreSQL:** Powerful relational database for data management.  
+- **PostgreSQL:** Powerful relational database for data management.
+- **NeonDB:** Hosted the Database on Clound Using PostgreSQL 
 
 ### **Machine Learning**
 - **TensorFlow / PyTorch:** For building and deploying recommendation models.  
-- **NLP:** Enhances community forums and search functionalities.  
+- **LLM:** Chatbot Integration for Project Recommendation and Conversation.  
 
 ### **API Testing**
 - **Postman:** For developing and testing RESTful APIs.  
 
 ### **Design Tools**
 - **Figma / Canva:** Prototyping and UI design.  
-
 ---
 
 ## 🔧 **Setup Instructions**
