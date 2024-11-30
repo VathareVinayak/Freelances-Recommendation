@@ -53,6 +53,13 @@
 
 ---
 
+
+## 💬 **Community and Forums**
+- **Topic-Based Discussions:** Foster networking and knowledge sharing among freelancers.  
+- **Q&A Sections:** Freelancers can ask questions and share insights.  
+- **Community Posts:** Clients can post updates, and freelancers can react to them, promoting dynamic interaction.  
+---
+
 ## 🔧 **Tech Stack**
 
 ### **Frontend**
@@ -93,11 +100,6 @@
 4. Participate in forums and register for events.  
 
 ---
-
-## 💬 **Community and Forums**
-- **Topic-Based Discussions:** Foster networking and knowledge sharing among freelancers.  
-- **Q&A Sections:** Freelancers can ask questions and share insights.  
-- **Community Posts:** Clients can post updates, and freelancers can react to them, promoting dynamic interaction.  
 
 ---
 
